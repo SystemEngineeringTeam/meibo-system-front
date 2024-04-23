@@ -22,6 +22,7 @@ const Title = styled.p`
 
 const IndexPage = (): ReactElement => {
   const [count, setCount] = useAtom(countAtom);
+  const a = 123;
 
   return (
     <Container>
