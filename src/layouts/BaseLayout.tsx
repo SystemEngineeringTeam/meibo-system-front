@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
       scroll-padding-top: 60px; /* header height */
     }
   }
-`
+`;
 
 const BaseLayout = (): ReactElement => (
   <ConfigProvider theme={theme}>
