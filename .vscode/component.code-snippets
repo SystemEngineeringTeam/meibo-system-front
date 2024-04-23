@@ -1,0 +1,23 @@
+{
+	"A component (arrow definition & default export)": {
+		"prefix": "@",
+		"body": [
+			"import { type ReactElement } from 'react';",
+			"import styled from 'styled-components';",
+			"",
+			"const Container = styled.div`",
+			"  width: 100%;",
+			"`;",
+			"",
+			"const ${1:ComponentName} = (): ReactElement => {",
+			"  ${2:// here is where you define custom hook!}",
+			"",
+			"  return <Container>$0</Container>;",
+			"};",
+			"",
+			"export default ${1:ComponentName};",
+			""
+		],
+		"description": ""
+	}
+}

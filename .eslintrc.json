@@ -11,7 +11,7 @@
   },
   "plugins": ["react", "unused-imports"],
   "rules": {
-    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    "@typescript-eslint/consistent-type-definitions": "error",
     "no-underscore-dangle": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": "off",
@@ -22,6 +22,7 @@
     "react/no-unstable-nested-components": "off",
     "react/jsx-sort-props": "warn",
     "react/require-default-props": "off",
+    "react/destructuring-assignment": ["error", "never"],
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "import/order": [
