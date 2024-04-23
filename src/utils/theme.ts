@@ -1,7 +1,7 @@
 import { type ThemeConfig } from 'antd';
 import colors from './color';
 
-const theme: ThemeConfig = {
+export const theme: ThemeConfig = {
   components: {
     Layout: {
       headerBg: colors.tertiary,
@@ -15,5 +15,3 @@ const theme: ThemeConfig = {
     fontFamily: '"Noto Sans JP Variable", sans-serif;',
   },
 };
-
-export default theme;

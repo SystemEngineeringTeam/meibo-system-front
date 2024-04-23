@@ -3,7 +3,7 @@ import { Button, Flex } from 'antd';
 import { useAtom } from 'jotai';
 import { type ReactElement } from 'react';
 import styled from 'styled-components';
-import { countAtom } from '@/utils/stores/counter';
+import { countAtom } from '@/stores/counter';
 
 const Container = styled.div`
   height: 100%;
