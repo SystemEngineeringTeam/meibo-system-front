@@ -5,7 +5,7 @@ import 'the-new-css-reset/css/reset.css';
 import '@fontsource-variable/noto-sans-jp';
 import { createGlobalStyle } from 'styled-components';
 import Header from '@/components/shared/Header';
-import theme from '@/utils/theme';
+import { theme } from '@/utils/theme';
 
 const { Header: HeaderContainer, Content } = Layout;
 
@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
       scroll-padding-top: 60px; /* header height */
     }
   }
-`
+`;
 
 const BaseLayout = (): ReactElement => (
   <ConfigProvider theme={theme}>
