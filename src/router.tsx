@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import ErrorBoundary from './components/shared/ErrorBoundary';
+import ErrorBoundary from './components/shared/errorBoundary';
 import BaseLayout from './layouts/BaseLayout';
 import IndexPage from './pages';
 

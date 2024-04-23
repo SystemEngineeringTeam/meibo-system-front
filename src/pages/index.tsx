@@ -3,7 +3,7 @@ import { Button, Flex } from 'antd';
 import { useAtom } from 'jotai';
 import { type ReactElement } from 'react';
 import styled from 'styled-components';
-import { $count } from '@/utils/stores/counter';
+import { countAtom } from '@/utils/stores/counter';
 
 const Container = styled.div`
   height: 100%;
@@ -21,7 +21,7 @@ const Title = styled.p`
 `;
 
 const IndexPage = (): ReactElement => {
-  const [count, setCount] = useAtom($count);
+  const [count, setCount] = useAtom(countAtom);
 
   return (
     <Container>
