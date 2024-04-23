@@ -55,12 +55,12 @@ const ErrorBoundary = (): ReactElement => {
     return (
       <Container>
         <Result
-          extra="申し訳ございません.  予期せぬエラーが発生しました."
+          extra="申し訳ございません. 予期せぬエラーが発生しました."
           status="error"
           style={{
             height: 'fit-content',
           }}
-          subTitle="詳細はコンソールへ"
+          subTitle="エラーの詳細はデバッグコンソールを参照してください."
           title="クライアントエラー"
         />
       </Container>
@@ -91,7 +91,7 @@ const ErrorBoundary = (): ReactElement => {
         subTitle={
           <>
             <code>{error.data}</code>
-            <p>エラーの詳細はコンソールを参照してください.</p>
+            <p>エラーの詳細はデバッグコンソールを参照してください.</p>
             <br />
             <p>{msg.subTitle}</p>
           </>

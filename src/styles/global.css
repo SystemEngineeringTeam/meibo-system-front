@@ -10,3 +10,11 @@ body,
 html {
   font-size: 1.125rem;
 }
+
+/* 768px = md */
+@media (width < 768px) {
+  html {
+    font-size: 1rem;
+    scroll-padding-top: 60px; /* header height */
+  }
+}

@@ -16,7 +16,7 @@ const BaseLayout = (): ReactElement => (
         <HeaderContainer>
           <Header />
         </HeaderContainer>
-        <Content style={{}}>
+        <Content>
           <Outlet />
         </Content>
       </Layout>

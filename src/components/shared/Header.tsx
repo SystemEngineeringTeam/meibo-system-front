@@ -1,5 +1,5 @@
 import { UserOutlined } from '@ant-design/icons';
-import { Avatar, Flex } from 'antd';
+import { Avatar, Dropdown, Flex, type MenuProps } from 'antd';
 import { type ReactElement } from 'react';
 import styled from 'styled-components';
 import colors from '@/utils/color';
@@ -25,6 +25,21 @@ const Nav = styled.nav`
   }
 `;
 
+const items: MenuProps['items'] = [
+  {
+    key: 'my-page',
+    label: (
+      <a href="/me" title="マイページへ遷移">
+        マイページ
+      </a>
+    ),
+  },
+  {
+    key: 'logout',
+    label: 'ログアウト',
+  },
+];
+
 const Header = (): ReactElement => (
   <Container>
     <Title href="/" title="ホームへ遷移">
@@ -39,10 +54,19 @@ const Header = (): ReactElement => (
           管理者
         </a>
       </Nav>
-      <Flex align="center" gap="0.5rem">
-        <Avatar icon={<UserOutlined />} size="large" />
-        お名前
-      </Flex>
+
+      <Dropdown arrow menu={{ items }} placement="topRight" trigger={['click']}>
+        <Flex
+          align="center"
+          gap="0.5rem"
+          style={{
+            cursor: 'pointer',
+          }}
+        >
+          <Avatar icon={<UserOutlined />} size="large" />
+          お名前
+        </Flex>
+      </Dropdown>
     </Flex>
   </Container>
 );
