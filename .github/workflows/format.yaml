@@ -16,4 +16,4 @@ jobs:
       - name: Prettify code
         uses: creyD/prettier_action@v4.3
         with:
-          prettier_options: --write src/**/*
+          prettier_options: --check 'src/**/*.{ts,tsx,js,jsx,json}'
