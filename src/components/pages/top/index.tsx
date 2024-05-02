@@ -10,7 +10,8 @@ const TopPage = (): ReactElement => {
     <main>
       {users.state === 'hasError' && <p>エラー</p>}
       {users.state === 'loading' && <p>ローディング中</p>}
-      {users.state === 'hasData' && users.data.map((user) => <TopBody key={user.id} user={user} />)}
+
+      {users.state === 'hasData' && <TopBody users={users.data} />}
     </main>
   );
 };
