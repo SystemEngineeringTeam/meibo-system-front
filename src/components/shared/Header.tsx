@@ -40,35 +40,37 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const Header = (): ReactElement => (
-  <Container>
-    <Title href="/" title="ホームへ遷移">
-      名簿システム
-    </Title>
-    <Flex gap="1rem">
-      <Nav>
-        <a href="/top" title="トップページへ遷移">
-          トップ
-        </a>
-        <a href="/admin" title="管理者ページへ遷移">
-          管理者
-        </a>
-      </Nav>
+const Header = (): ReactElement => {
+  return (
+    <Container>
+      <Title href="/" title="ホームへ遷移">
+        名簿システム
+      </Title>
+      <Flex gap="1rem">
+        <Nav>
+          <a href="/top" title="トップページへ遷移">
+            トップ
+          </a>
+          <a href="/admin" title="管理者ページへ遷移">
+            管理者
+          </a>
+        </Nav>
 
-      <Dropdown arrow menu={{ items }} placement="topRight" trigger={['click']}>
-        <Flex
-          align="center"
-          gap="0.5rem"
-          style={{
-            cursor: 'pointer',
-          }}
-        >
-          <Avatar icon={<UserOutlined />} size="large" />
-          お名前
-        </Flex>
-      </Dropdown>
-    </Flex>
-  </Container>
-);
+        <Dropdown arrow menu={{ items }} placement="topRight" trigger={['click']}>
+          <Flex
+            align="center"
+            gap="0.5rem"
+            style={{
+              cursor: 'pointer',
+            }}
+          >
+            <Avatar icon={<UserOutlined />} size="large" />
+            お名前
+          </Flex>
+        </Dropdown>
+      </Flex>
+    </Container>
+  );
+};
 
 export default Header;
