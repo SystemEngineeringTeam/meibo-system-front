@@ -33,4 +33,4 @@ jobs:
         with:
           eslint: true
           prettier: true
-          eslint_args: .ts,.tsx ./src
+          eslint_args: --ext .ts,.tsx ./src
