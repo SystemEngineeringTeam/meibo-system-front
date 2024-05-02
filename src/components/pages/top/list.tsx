@@ -22,7 +22,7 @@ const TopBody = (props: Props): ReactElement => {
     <div>
       {user.type === 'active' && (
         <UserCard>
-          <Card  cover={<img alt="icon" src={user.iconUrl} />} hoverable>
+          <Card cover={<img alt="icon" src={user.iconUrl} />} hoverable>
             <p>
               [{user.grade}] {user.studentNumber}
               <h3>
