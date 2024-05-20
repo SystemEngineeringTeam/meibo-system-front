@@ -1,9 +1,13 @@
-import { App, ConfigProvider, Layout } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
+import { App, ConfigProvider, Flex, Layout } from 'antd';
+import { useAtomValue } from 'jotai';
 import { type ReactElement } from 'react';
 import { Outlet } from 'react-router-dom';
 import 'the-new-css-reset/css/reset.css';
 import { createGlobalStyle } from 'styled-components';
+import LoginPage from '@/components/pages/login';
 import Header from '@/components/shared/Header';
+import { userAtomLoadable } from '@/stores/userAtom';
 import { theme } from '@/utils/theme';
 
 const { Header: HeaderContainer, Content } = Layout;
@@ -21,20 +25,31 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const BaseLayout = (): ReactElement => (
-  <ConfigProvider theme={theme}>
-    <App>
-      <GlobalStyle />
-      <Layout>
-        <HeaderContainer>
-          <Header />
-        </HeaderContainer>
-        <Content>
-          <Outlet />
-        </Content>
-      </Layout>
-    </App>
-  </ConfigProvider>
-);
+const BaseLayout = (): ReactElement => {
+  const user = useAtomValue(userAtomLoadable);
+
+  if (user.state === 'hasError') throw Error('Failed to fetch user data');
+
+  return (
+    <ConfigProvider theme={theme}>
+      <App>
+        <GlobalStyle />
+        <Layout>
+          <HeaderContainer>
+            <Header />
+          </HeaderContainer>
+          <Content>
+            {user.state === 'loading' && (
+              <Flex align="center" justify="center" vertical>
+                <LoadingOutlined />
+              </Flex>
+            )}
+            {user.state === 'hasData' && (user.data.signined ? <Outlet /> : <LoginPage />)}
+          </Content>
+        </Layout>
+      </App>
+    </ConfigProvider>
+  );
+};
 
 export default BaseLayout;
