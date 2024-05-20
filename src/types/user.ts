@@ -53,3 +53,13 @@ export interface UserBase {
 export type User<WithPrivate extends boolean> = UserBase &
   (ActiveUserProps | OBOGMemberProps | ExternalMember) &
   (WithPrivate extends true ? PrivateProps : Record<never, never>);
+
+type IsSigninedUser = {
+  signined: true;
+} & User<true>;
+
+interface IsNotSigninedUser {
+  signined: false;
+}
+
+export type SigninedUser<T extends boolean> = T extends true ? IsSigninedUser : IsNotSigninedUser;
