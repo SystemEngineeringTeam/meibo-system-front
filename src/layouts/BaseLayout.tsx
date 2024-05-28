@@ -7,7 +7,7 @@ import 'the-new-css-reset/css/reset.css';
 import { createGlobalStyle } from 'styled-components';
 import LoginPage from '@/components/pages/login';
 import Header from '@/components/shared/Header';
-import { userAtomLoadable } from '@/stores/userAtom';
+import { currentUserAtomLoadable } from '@/stores/currentUserAtom';
 import { theme } from '@/utils/theme';
 
 const { Header: HeaderContainer, Content } = Layout;
@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const BaseLayout = (): ReactElement => {
-  const user = useAtomValue(userAtomLoadable);
+  const user = useAtomValue(currentUserAtomLoadable);
 
   if (user.state === 'hasError') throw Error('Failed to fetch user data');
 
@@ -44,7 +44,7 @@ const BaseLayout = (): ReactElement => {
                 <LoadingOutlined />
               </Flex>
             )}
-            {user.state === 'hasData' && (user.data.signined ? <Outlet /> : <LoginPage />)}
+            {user.state === 'hasData' && (user.data != null ? <Outlet /> : <LoginPage />)}
           </Content>
         </Layout>
       </App>
