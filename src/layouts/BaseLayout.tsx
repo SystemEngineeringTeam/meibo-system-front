@@ -7,7 +7,7 @@ import 'the-new-css-reset/css/reset.css';
 import { createGlobalStyle } from 'styled-components';
 import LoginPage from '@/components/pages/login';
 import Header from '@/components/shared/Header';
-import { currentUserAtomLoadable } from '@/stores/userAtom';
+import { currentUserAtomLoadable } from '@/stores/currentUserAtom';
 import { theme } from '@/utils/theme';
 
 const { Header: HeaderContainer, Content } = Layout;
