@@ -1,13 +1,12 @@
 import { atom } from 'jotai';
 import { loadable } from 'jotai/utils';
-import { type SigninedUser } from '@/types/user';
+import { type CurrentUser } from '@/types/user';
 import { waitMs } from '@/utils/promise';
 
-const fetchUser = async (): Promise<SigninedUser<boolean>> => {
+const fetchCurrentUser = async (): Promise<CurrentUser> => {
   await waitMs(2000);
 
-  const user: SigninedUser<boolean> = {
-    signined: true,
+  const user: CurrentUser = {
     id: '0000-0000-0000-0000',
     firstName: '智',
     lastName: '佐藤',
@@ -38,5 +37,5 @@ const fetchUser = async (): Promise<SigninedUser<boolean>> => {
   return user;
 };
 
-const userAtom = atom(async () => await fetchUser());
-export const userAtomLoadable = loadable(userAtom);
+const currentUserAtomAtom = atom(async () => await fetchCurrentUser());
+export const currentUserAtomLoadable = loadable(currentUserAtomAtom);
