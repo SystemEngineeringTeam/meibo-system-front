@@ -44,7 +44,7 @@ const BaseLayout = (): ReactElement => {
                 <LoadingOutlined />
               </Flex>
             )}
-            {user.state === 'hasData' && (user.data == null ? <Outlet /> : <LoginPage />)}
+            {user.state === 'hasData' && (user.data != null ? <Outlet /> : <LoginPage />)}
           </Content>
         </Layout>
       </App>
