@@ -4,7 +4,7 @@ import { useAtomValue } from 'jotai';
 import { type ReactElement } from 'react';
 import { Outlet } from 'react-router-dom';
 import 'the-new-css-reset/css/reset.css';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import LoginPage from '@/components/pages/login';
 import Header from '@/components/shared/Header';
 import { currentUserAtomLoadable } from '@/stores/currentUserAtom';
@@ -25,6 +25,13 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const GlobalLayout = styled(Layout)`
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid: auto 1fr / 1fr;
+`;
+
 const BaseLayout = (): ReactElement => {
   const user = useAtomValue(currentUserAtomLoadable);
 
@@ -34,7 +41,7 @@ const BaseLayout = (): ReactElement => {
     <ConfigProvider theme={theme}>
       <App>
         <GlobalStyle />
-        <Layout>
+        <GlobalLayout>
           <HeaderContainer>
             <Header />
           </HeaderContainer>
@@ -46,7 +53,7 @@ const BaseLayout = (): ReactElement => {
             )}
             {user.state === 'hasData' && (user.data != null ? <Outlet /> : <LoginPage />)}
           </Content>
-        </Layout>
+        </GlobalLayout>
       </App>
     </ConfigProvider>
   );
