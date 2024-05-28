@@ -7,7 +7,7 @@ const UserList = styled.div`
   display: grid;
   justify-content: left;
   margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   padding: 20px;
 `;
